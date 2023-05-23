@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,9 @@
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Fonte Roboto-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,14 +22,53 @@
     <link rel="stylesheet" href="assets/css/pokedex.css">
 </head>
 <body>
-    
+
     <section class="content">
 
-        <h1>Pokedex</h1>
+        <div class="cima">
+            <h1>Pokedex</h1>
+        </div>
 
-        <ol id="pokemonList" class="pokemons">
+        <div id="separacao">
+            <div id="statsResult">
+                <i class="fa-solid fa-arrow-left-long setaVoltar" onclick="fecharStats()"></i>
+                <div class="titulo">
+                    <h2 class="statsName">Bulbasaur</h2>
+                    <span class="number">#001</span>
+                </div>
+                <ol class="types">
+                    <li class="type">grass</li>
+                    <li class="type">poison</li>
+                </ol>
+
+                <div id="imgStats">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="Bulbasaur">
+                </div>
+
+                <div class="select">
+                    <span class="about">About</span>
+                    <span class="baseStats">Base Stats</span>
+
+                    <div class="detailsAbout">
+                        <ol class="titleDetail">
+                            <li class="species"><b>Species</b> <span class="valueOf">Grass</span></li>
+
+                            <li class="height"><b>Height</b> <span class="valueOf">2'3.6* (0.70 cm)</span></li>
+                            <li class="weight"><b>Weight</b> <span class="valueOf">15.2 lbs (6.9kg)</span></li>
+                            <li class="abilities"><b>Abilities</b> <span class="valueOf">Overgrow, Chlorophyl</span></li>
+                            <li class="gender"><b>Gender</b> <span class="valueOf">Male</span></li>
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="meio">
+            <ol id="pokemonList" class="pokemons">
             
-        </ol>
+            </ol>
+        </div>
 
         <div class="pagination">
             <button id="loadMoreBtn" type="button">

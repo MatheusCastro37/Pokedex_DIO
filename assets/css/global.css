@@ -5,10 +5,13 @@
 
 body{
     background-color: #f6f8fc;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .content{
-    padding: 1rem;
     background-color: #FFF;
     height: 100vh;
     width: 100vw;

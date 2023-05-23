@@ -2,13 +2,13 @@ const pokemonList = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreBtn');
 
 const maxRecords = 151;
-const limit = 10;
+const limit = 12;
 let offset = 0;
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map((pokemon) => `
-            <li class="pokemon ${pokemon.type}">
+            <li class="pokemon ${pokemon.type}" onclick="showStats()">
                 <span class="number">#${pokemon.number}</span>
                 <span class="name">${pokemon.name}</span>
 
@@ -28,6 +28,7 @@ function loadPokemonItens(offset, limit) {
 
 loadPokemonItens(offset, limit);
 
+//Botão pra carregar mais pokemons
 loadMoreButton.addEventListener('click', () => {
     offset += limit
     const qtdRecordsWithNextPage = offset + limit
@@ -41,3 +42,13 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+//abrir tela e mostrar stats dos pokemons
+function showStats() {
+    document.getElementById('statsResult').style.display = 'block'
+}
+
+//fechar tela dos stats dos pokemons
+function fecharStats() {
+    document.getElementById('statsResult').style.display = 'none'
+}
