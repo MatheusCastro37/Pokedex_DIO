@@ -156,31 +156,30 @@ div#statsResult{
     -webkit-animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
             animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
     background-color: #77c850;
+    max-width: 925px;
     width: 90vw;
-    height: 96vh;
-    bottom: 2%;
+    height: 94%;
+    bottom: 3%;
     box-shadow: 10px 10px 50px 10px #424242;
 }
 
-div.titulo{
+div.titulo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-right: 1.4em;
+    padding: 0 15vw 0 7vw;
+    justify-content: space-between;
 }
 
 .statsName{
     color: #FFF;
-    margin-left: 1em;
     text-transform: capitalize;
 }
 
 .types{
-    padding: 0;
+    padding: 0 0 0 7vw;
     margin: 0;
     list-style: none;
     display: flex;
-    margin-left: 1em;
 }
 
 .types .type{
@@ -199,28 +198,48 @@ div.titulo{
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 40vw;
+    height: 18%;
 }
 
 div#statsResult img{
-    margin-top: 2em;
+    margin-top: 4em;
     max-width: 100%;
     max-height: 120px;
     position: fixed;
 }
 
 div.select{
+    max-width: 925px;
     width: 90vw;
-    height: 61.1vh;
+    height: 63%;
     background-color: #FFF;
     border-radius: 25px 25px 0 0;
     padding-top: 2.8em;
 }
 
-span.about,
-span.baseStats{
-    margin: 0 1em;
-    display: inline-block;
+.tab{
+    margin-left: 7vw;
+    background-color: #c5c5c5;
+    color: #1f1e1e;
+    padding: 0.550em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.tab::after{
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #242424;
+    margin-top: 20px;
+}
+
+.tab:hover{
+    -webkit-box-shadow: -3px 4px 14px 5px rgba(0,0,0,0.43);
+    -moz-box-shadow: -3px 4px 14px 5px rgba(0,0,0,0.43);
+    box-shadow: -3px 4px 14px 5px rgba(0,0,0,0.43);
 }
 
 li.species,
@@ -235,18 +254,22 @@ li.gender{
 }
 
 ol.titleDetail {
-    padding-left: 1em;
+    padding-left: 7vw;
     display: inline-flex;
     align-items: flex-start;
     flex-direction: column;
 }
 
 li > span.valueOf{
-    padding: 0 1.94em;
+    padding: 0 1.74em;
 }
 
 li > b{
     opacity: 0.4;
+}
+
+.statsNumber{
+    opacity: 0.6;
 }
 
 .setaVoltar{
@@ -260,15 +283,6 @@ li > b{
 @media screen and (min-width: 380px) {
     .pokemons{
         grid-template-columns: 1fr 1fr;
-    }
-
-    div.teste2{
-        -webkit-animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
-                animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
-        background-color: yellow;
-        width: 100px;
-        height: 100px;
-        box-shadow: 10px 10px 50px 10px #424242;
     }
 }
 

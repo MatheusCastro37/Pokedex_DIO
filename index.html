@@ -25,6 +25,7 @@
 
     <section class="content">
 
+
         <div class="cima">
             <h1>Pokedex</h1>
         </div>
@@ -34,7 +35,7 @@
                 <i class="fa-solid fa-arrow-left-long setaVoltar" onclick="fecharStats()"></i>
                 <div class="titulo">
                     <h2 class="statsName">Bulbasaur</h2>
-                    <span class="number">#001</span>
+                    <span class="statsNumber">#001</span>
                 </div>
                 <ol class="types">
                     <li class="type">grass</li>
@@ -46,8 +47,10 @@
                 </div>
 
                 <div class="select">
-                    <span class="about">About</span>
-                    <span class="baseStats">Base Stats</span>
+                    <div id="tabSelect">
+                        <button class="tab" onclick="tabAbout()">About</button>
+                        <button class="tab" onclick="tabBaseStats()">Base Stats</button>
+                    </div>
 
                     <div class="detailsAbout">
                         <ol class="titleDetail">
