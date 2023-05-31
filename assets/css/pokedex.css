@@ -151,11 +151,11 @@ div#separacao{
 }
 
 div#statsResult{
+    display: none;
     position: fixed;
     z-index: 999;
     -webkit-animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
             animation: scale-up-center 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
-    background-color: #77c850;
     max-width: 925px;
     width: 90vw;
     height: 94%;
@@ -182,8 +182,7 @@ div.titulo {
     display: flex;
 }
 
-.types .type{
-    background-color: aliceblue;
+.detailType{
     color: #000;
     padding: .25rem .5rem;
     margin: .25rem 0;
@@ -242,11 +241,7 @@ div.select{
     box-shadow: -3px 4px 14px 5px rgba(0,0,0,0.43);
 }
 
-li.species,
-li.height,
-li.weight,
-li.abilities,
-li.gender{
+li.titleDetailSpecs{
     display: flex;
     align-items: center;
     padding: 0.35em 0;
@@ -278,6 +273,7 @@ li > b{
     background-color: #424242;
     border-radius: 100%;
     padding: 7px;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 380px) {
