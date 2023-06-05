@@ -161,6 +161,7 @@ div#statsResult{
     height: 94%;
     bottom: 3%;
     box-shadow: 10px 10px 50px 10px #424242;
+    border-radius: 20px;
 }
 
 div.titulo {
@@ -201,9 +202,9 @@ div.titulo {
 }
 
 div#statsResult img{
-    margin-top: 4em;
+    margin-top: 3em;
     max-width: 100%;
-    max-height: 120px;
+    max-height: 150px;
     position: fixed;
 }
 
@@ -214,6 +215,7 @@ div.select{
     background-color: #FFF;
     border-radius: 25px 25px 0 0;
     padding-top: 2.8em;
+    border-radius: 20px;
 }
 
 .tab{
@@ -226,6 +228,10 @@ div.select{
     cursor: pointer;
 }
 
+#baseStats{
+    display: none;
+}
+
 .tab::after{
     display: block;
     content: "";
@@ -235,7 +241,8 @@ div.select{
     margin-top: 20px;
 }
 
-.tab:hover{
+.tab:hover,
+.setaVoltar:hover{
     -webkit-box-shadow: -3px 4px 14px 5px rgba(0,0,0,0.43);
     -moz-box-shadow: -3px 4px 14px 5px rgba(0,0,0,0.43);
     box-shadow: -3px 4px 14px 5px rgba(0,0,0,0.43);
@@ -268,9 +275,9 @@ li > b{
 }
 
 .setaVoltar{
+    color: #FFF;
     font-size: 1.5em;
     margin: 1.5em 0 0 1em;
-    background-color: #424242;
     border-radius: 100%;
     padding: 7px;
     cursor: pointer;

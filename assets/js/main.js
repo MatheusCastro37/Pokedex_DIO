@@ -43,10 +43,8 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
-
 //abrir tela e mostrar stats dos pokemons
 function showStats() {
-
     const pokemonItems = document.querySelectorAll('#pokemonList li');
 
     pokemonItems.forEach(item => {
@@ -56,7 +54,10 @@ function showStats() {
             const name = item.querySelector('.name').textContent;
             let type1 = item.querySelector('.types').children[0];
             let type2 = item.querySelector('.types').children[1];
+            const showDetails = document.getElementById('separacao')
 
+            showDetailsOfPokemons(number);
+            
             if(typeof(type1) == typeof(type2)) {
                 type1 = type1.textContent;
                 type2 = type2.textContent;
@@ -65,49 +66,47 @@ function showStats() {
                 type2 = "";
             }
 
-            showDetailsPokemons(number)
-
-            const showDetails = document.getElementById('separacao')
-
-            showDetails.innerHTML = `
-                <div id="statsResult" class="${type1}">
-                    <i class="fa-solid fa-arrow-left-long setaVoltar" onclick="fecharStats()"></i>
-                    <div class="titulo">
-                        <h2 class="statsName">${name}</h2>
-                        <span class="statsNumber">#${number}</span>
-                    </div>
-                    <ol class="types">
-                        <li class="detailType ${type1}">${type1}</li>
-                        <li class="detailType ${type2}">${type2}</li>
-                    </ol>
-
-                    <div id="imgStats">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="Bulbasaur">
-                    </div>
-
-                    <div class="select">
-                        <div id="tabSelect">
-                            <button class="tab" onclick="tabAbout()">About</button>
-                            <button class="tab" onclick="tabBaseStats()">Base Stats</button>
+            function showDetailsOfPokemons(number) {
+                pokeApi.getDetailsOfPokemons(number).then(() => {
+                    showDetails.innerHTML = `
+                    <div id="statsResult" class="${type1}">
+                        <i class="fa-solid fa-arrow-left-long setaVoltar" onclick="fecharStats()"></i>
+                        <div class="titulo">
+                            <h2 class="statsName">${name}</h2>
+                            <span class="statsNumber">#${number}</span>
                         </div>
+                        <ol class="types">
+                            <li class="detailType ${type1}">${type1}</li>
+                            <li class="detailType ${type2}">${type2}</li>
+                        </ol>
 
-                        <div id="detailsAbout">
-                            <ol class="titleDetail">
-                                <li class="titleDetailSpecs"><b>Species</b> <span class="valueOf">Grass</span></li>
-                                <li class="titleDetailSpecs"><b>Height</b> <span class="valueOf">2'3.6* (0.70 cm)</span></li>
-                                <li class="titleDetailSpecs"><b></b> <span class="valueOf">15.2 lbs (6.9kg)</span></li>
-                                <li class="titleDetailSpecs"><b>Abilities</b> <span class="valueOf">Overgrow, Chlorophyl</span></li>
-                                <li class="titleDetailSpecs"><b>Gender</b> <span class="valueOf">Male</span></li>
-                            </ol>
+                        <div id="imgStats">
+                            <img src="${PokemonsDet.photo}" alt="${name}">
                         </div>
+            
+                        <div class="select">
+                            <div id="tabSelect">
+                                <button class="tab" id="about" onclick="tabAbout()">About</button>
+                                <button class="tab" id="baseStats" onclick="tabBaseStats()">Base Stats</button>
+                            </div>
+            
+                            <div id="detailsAbout">
+                                <ol class="titleDetail">
+                                    <li class="titleDetailSpecs"><b>Height</b> <span class="valueOf">${PokemonsDet.height}</span></li>
+                                    <li class="titleDetailSpecs"><b>Weight</b> <span class="valueOf">${PokemonsDet.weight}</span></li>
+                                    <li class="titleDetailSpecs"><b>Abilities</b> <span class="valueOf">${PokemonsDet.abilityName}</span></li>
+                                </ol>
+                            </div>
+                        </div>
+            
                     </div>
-
-                </div>
-            `
-            document.getElementById('statsResult').style.display = 'block'
+                    `
+                    document.getElementById('statsResult').style.display = 'block'
+                })
+            }
         });
     });
-}
+};
 
 //fechar tela dos stats dos pokemons
 function fecharStats() {
@@ -130,11 +129,9 @@ function tabBaseStats() {
 function tabAbout() {
     document.getElementById('detailsAbout').innerHTML = `
     <ol class="titleDetail">
-        <li class="titleDetailSpecs"><b>Species</b> <span class="valueOf">Grass</span></li>
-        <li class="titleDetailSpecs"><b>Height</b> <span class="valueOf">2'3.6* (0.70 cm)</span></li>
-        <li class="titleDetailSpecs"><b>Weight</b> <span class="valueOf">15.2 lbs (6.9kg)</span></li>
-        <li class="titleDetailSpecs"><b>Abilities</b> <span class="valueOf">Overgrow, Chlorophyl</span></li>
-        <li class="titleDetailSpecs"><b>Gender</b> <span class="valueOf">Male</span></li>
+        <li class="titleDetailSpecs"><b>Height</b> <span class="valueOf">${PokemonsDet.height}</span></li>
+        <li class="titleDetailSpecs"><b>Weight</b> <span class="valueOf">${PokemonsDet.weight}</span></li>
+        <li class="titleDetailSpecs"><b>Abilities</b> <span class="valueOf">${PokemonsDet.abilityName}</span></li>
     </ol>
     `;
 }
